@@ -147,8 +147,8 @@ class SsoAuthenticationProvider implements AuthenticationProviderInterface
         } catch (UsernameNotFoundException $notFound) {
             throw $notFound;
         } catch (\Exception $repositoryProblem) {
-            throw new AuthenticationServiceException($repositoryProblem->getMessage(), $username, 0, $repositoryProblem);
-        }
+        	throw new AuthenticationServiceException($username." : ".$repositoryProblem->getMessage(),0, $repositoryProblem);
+	}
 
         return $user;
     }
